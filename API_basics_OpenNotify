@@ -1,0 +1,44 @@
+#using Dataquest- Python tuturial- An Inroduction to using API's
+#https://www.dataquest.io/blog/python-api-tutorial/
+
+API- Application program interface
+  • can filter data
+  • data is constently updated
+API endpoint- a server route that is used to retrieve different data from the API, always added to BaseURL
+  • using python can be accessed by requests library
+  • data is sent to computer in JSON format
+ 
+ Valid Calls:
+  • response=requests.get("BaseURL/Endpoint")
+  • print(response.status_code)- 200 is success, refer here to other response codes https://www.dataquest.io/blog/python-api-tutorial/
+ 
+  
+  
+  
+  
+#Example API calls using International Space Station (ISS) data
+
+ # BaseURL-  http://api.open-notify.org
+  #enpoints: iss-now.json, iss-pass.json (requires 2 parameters)
+  
+  >>> import requests
+>>> response=requests.get("http://api.open-notify.org/iss-now.json")
+>>> print(response.status_code)
+200
+>>> response2=requests.get("http://api.open-notify.org/iss-pass")
+>>> print(response2.status_code)
+404
+>>> print(response)
+<Response [200]>
+>>> response2=requests.get("http://api.open-notify.org/iss-pass.json")
+>>> print(response2.status_code)
+400
+>>> parameters= {"lat": 40.71, "lon": -74}
+>>> response2=requests.get("http://api.open-notify.org/iss-pass.json", params=parameters)
+>>> print(response.content)
+b'{"timestamp": 1536255646, "message": "success", "iss_position": {"latitude": "-36.3770", "longitude": "45.6613"}}'
+>>> resonse3= requests.get("http://api.open-notify.org/iss-pass.json?lat=40&lon=-74")
+>>> #response 2 is the same as response 3
+>>> print(response.content)
+b'{"timestamp": 1536255646, "message": "success", "iss_position": {"latitude": "-36.3770", "longitude": "45.6613"}}'
+>>> 
