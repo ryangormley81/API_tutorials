@@ -1,0 +1,16 @@
+# information from Dataquest Python API tutorial- and introduciton to API's
+# https://www.dataquest.io/blog/python-api-tutorial/
+
+JSON- JavaScript Object Notation
+  • a way to encode lists and dictionaries to strings easily readable by machines
+  • primary format in which data is passed back and forth to API's
+  
+JSON in Python
+  • json package is in standard library
+  • methods: dumps- Python object-> string
+                ex. dict2_string= json.dumps(dict2)
+                ex. list2_string= json.dumps(list2)
+             loads- JSON string -> python object
+              ex. 
+  • getting JSON from API 
+        data = response.json()
