@@ -14,3 +14,5 @@ JSON in Python
               ex. 
   • getting JSON from API 
         data = response.json()
+   VERY IMPORTANT
+        
